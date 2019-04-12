@@ -1,3 +1,5 @@
+import { Server } from "net";
+
 ;(function () {
 
     'use strict';
