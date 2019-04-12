@@ -11,12 +11,6 @@ const answers = [
     { groupID : 3, chapterID: 1, result: 6},
 ];
 
-
-
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '\\html\\MathFun.html');
-});
-
 app.get('/:groupID', function (req, res) {
     const answer = answers.find(c => c.groupID === parseInt(req.params.groupID))
     if(!answer) {
