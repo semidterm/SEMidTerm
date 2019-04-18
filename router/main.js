@@ -6,7 +6,7 @@ module.exports = function (app) {
     });
 
     app.get('/MathFun.html', function (req, res) {
-        res.sendFile(path.join(__dirname, '..', '/views/MathFun.html'));
+        res.sendFile(path.join(__dirname, '..', '/views/MathFun.ejs'));
     });
 
     app.get('/Trangchu.html', (req, res) =>{
