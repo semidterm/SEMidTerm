@@ -20,7 +20,7 @@ app.get('/demo',(req, res)=>{
         groupID: 1,
         chapterID: 1,
         question: "3 + 5 = ?",
-        result: 8
+        result: "8"
     }
     res.json(person);
 })

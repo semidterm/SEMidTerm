@@ -25,7 +25,7 @@
             </h2>
         </div>
         <div id ="box" style="float: left;height:400px; width:600px; border:2px solid blue; ">
-            <button id="buttonC" style="font-size:20px;">Kiểm tra</button>
+            <button id="demo" style="font-size:20px;">Kiểm tra</button>
         </div>  
         <div id ="output" > 
            <h2>
@@ -40,6 +40,7 @@
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script>
+    var dataQuery;
     $(document).ready(function () {
         $.ajax({
             url: 'http://localhost:3000/demo',
@@ -48,20 +49,33 @@
             crossDomain: false,
             cache: false,
             success: function (data) {
+                dataQuery = data;
                 var element = document.getElementById("box");
                 element.innerHTML =
-                    '<p style="font-size: 100px ;text-align: center;  ">' + data.question + '</p>' +
+                    '<p style="font-size: 100px ;text-align: center;  ">' + dataQuery.question + '</p>' +
                     '<p style="text-align: center; font-size: 40px ">Kết quả :' +
                     '<input id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >' +
                     '<button id="button" style="font-size:20px;" >Kiểm tra</button>' +
                     '</p>';
-                console.log(data);
+                console.log(dataQuery);
             },
             error: function () { alert('Failed!') },
         });
-        $('#point').click(function () {
-            console.log('clicked')
-        })
+        setTimeout(function(){
+            $("button").on("click",function(){ //setTimeout để ngăn hàm chạy trước khi đối tượng được khởi tạo
+                var element = $('input').val();
+                if(element === dataQuery.result){
+                    alert('True')
+                }
+                else if(element != dataQuery.result && element != false) {
+                    alert('False')
+                }
+                else if(element == null){
+                    alert('Please type your answer')
+                }
+
+            })
+        },1000)
     });
     
 </script>
