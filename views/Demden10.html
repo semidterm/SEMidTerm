@@ -33,8 +33,6 @@
             </h2>
             <div id="point" style="float:right; height: 310px; width: 420px; border :2px solid blue;">   
         </div>  
-
-       <div id= "nextPage" > </div>
     </div>  
 </body>
 
@@ -49,34 +47,43 @@
             crossDomain: false,
             cache: false,
             success: function (data) {
-                dataQuery = data;
-                var element = document.getElementById("box");
-                element.innerHTML =
-                    '<p style="font-size: 100px ;text-align: center;  ">' + dataQuery.question + '</p>' +
-                    '<p style="text-align: center; font-size: 40px ">Kết quả :' +
-                    '<input id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >' +
-                    '<button id="button" style="font-size:20px;" >Kiểm tra</button>' +
-                    '</p>';
-                console.log(dataQuery);
+                displayData(data[0]); 
+                $("button").click(function(){
+                    displayData(data[1]);
+                    $("button").click(function () {
+                        displayData(data[2]);
+                    })
+                })
+                
             },
             error: function () { alert('Failed!') },
         });
-        setTimeout(function(){
-            $("button").on("click",function(){ //setTimeout để ngăn hàm chạy trước khi đối tượng được khởi tạo
+        
+    });
+
+    function displayData(dData) {
+        var element = document.getElementById("box");
+        element.innerHTML =
+            '<p style="font-size: 100px ;text-align: center;  ">' + dData.question + '</p>' +
+            '<p style="text-align: center; font-size: 40px ">Kết quả :' +
+            '<input id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >' +
+            '<button id="button" style="font-size:20px;" >Kiểm tra</button>' +
+            '</p>';
+        setTimeout(function () {
+            $("button").on("click", function () { 
                 var element = $('input').val();
-                if(element === dataQuery.result){
+                if (element === dData.result) {
                     alert('True')
                 }
-                else if(element != dataQuery.result && element != false) {
+                else if (element != dData.result && element != false) {
                     alert('False')
                 }
-                else if(element == null){
+                else if (element == null) {
                     alert('Please type your answer')
                 }
-
             })
-        },1000)
-    });
+        }, 1000)
+    }
     
 </script>
 </html>

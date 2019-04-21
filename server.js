@@ -16,13 +16,31 @@ app.set('view engine', 'ejs');
 
 
 app.get('/demo',(req, res)=>{
-    let person = {
+    let answer = [
+    {
         groupID: 1,
         chapterID: 1,
         question: "3 + 5 = ?",
         result: "8"
-    }
-    res.json(person);
+    },
+    {
+        groupID: 1,
+        chapterID: 2,
+        question: "5 + 1 = ?",
+        result: "6"
+    },
+        {
+            groupID: 1,
+            chapterID: 3,
+            question: "1 + 1 = ?",
+            result: "2"
+        }
+]
+    res.json(answer);
+})
+
+app.get('/demo/:groupID', (req, res) =>{
+    res.send(req.params.groupID);
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
