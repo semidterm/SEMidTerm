@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body >
 <nav class="navbar navbar-light bg-light justify-content-start sticky-top" id="my-menu">
    <a class="nav-link" href="Trangchu.html">Trang chủ</a>
@@ -18,27 +19,50 @@
 </nav>
     <h1 style="font-size: 40px; text-align: center;" > Đếm đến 10 </h1>
     <div class="container">
-        <div id = "require"> <h2> <p style="color: black; font-size: 30px;">Điền số thích hợp vào ô trống</p> </h2></div>
-         <div id ="box" style="float: left;height:400px; width:600px; border:2px solid blue; ">
-               <p style="font-size: 100px ;text-align: center;  "> 3 + 5 = ?</p>
-               <p style="text-align: center; font-size: 40px ">Kết quả :
-                <input id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >
-                <button style="font-size:20px;" >Kiểm tra</button>
-               </p>   
-           </div>  
+        <div id = "require"> 
+            <h2> 
+                <p style="color: black; font-size: 30px;">Điền số thích hợp vào ô trống</p> 
+            </h2>
+        </div>
+        <div id ="box" style="float: left;height:400px; width:600px; border:2px solid blue; ">
+            <button id="buttonC" style="font-size:20px;">Kiểm tra</button>
+        </div>  
         <div id ="output" > 
-           <h2><p style="text-align: center; color: black; font-size: 30px;">Số sao đạt được</p></h2>
-            <div id="point" style="float:right; height: 310px; width: 420px; border :2px solid blue;">
-              <script type="text/javascript">
-                document.getElementById('c1').value=8; 
-              </script>
-              
-           </div>  
+           <h2>
+               <p style="text-align: center; color: black; font-size: 30px;">Số sao đạt được</p>
+            </h2>
+            <div id="point" style="float:right; height: 310px; width: 420px; border :2px solid blue;">   
+        </div>  
 
        <div id= "nextPage" > </div>
     </div>  
 </body>
 
-
-
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: 'http://localhost:3000/demo',
+            type: 'GET',
+            dataType: 'json',
+            crossDomain: false,
+            cache: false,
+            success: function (data) {
+                var element = document.getElementById("box");
+                element.innerHTML =
+                    '<p style="font-size: 100px ;text-align: center;  ">' + data.question + '</p>' +
+                    '<p style="text-align: center; font-size: 40px ">Kết quả :' +
+                    '<input id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >' +
+                    '<button id="button" style="font-size:20px;" >Kiểm tra</button>' +
+                    '</p>';
+                console.log(data);
+            },
+            error: function () { alert('Failed!') },
+        });
+        $('#point').click(function () {
+            console.log('clicked')
+        })
+    });
+    
+</script>
 </html>
