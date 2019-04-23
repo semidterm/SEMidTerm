@@ -17,8 +17,8 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, '..', '/views/Luyentap.html'))
     });
 
-    app.get('/Demden10.html', (req, res) => {
-        res.sendFile(path.join(__dirname, '..', '/views/Demden10.html'))
+    app.get('/Congphamvi10.html', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', '/views/Congphamvi10.html'))
     });
 
     app.get('/Lienhe.html', (req, res) => {
