@@ -31,34 +31,50 @@
            <h2>
                <p style="text-align: center; color: black; font-size: 30px;">Số sao đạt được</p>
             </h2>
-            <div id="point" style="float:right; height: 310px; width: 420px; border :2px solid blue;">   
+            <div id="point" style="float:right; height: 310px; width: 420px; border :2px solid blue; text-align:center">   
+            </div>  
         </div>  
-    </div>  
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script>
+    var numTrue = 0;
     var dataQuery;
     $(document).ready(function () {
         $.ajax({
-            url: 'http://localhost:3000/demo',
+            url: 'http://localhost:3000/demden10data',
             type: 'GET',
             dataType: 'json',
             crossDomain: false,
             cache: false,
             success: function (data) {
-                displayData(data[0]); 
+                console.log(data);
+                displayData(data[0])
                 $("button").click(function(){
-                    displayData(data[1]);
+                    listenButton(data[0]);
+                    setTimeout(displayData(data[1]));
                     $("button").click(function () {
-                        displayData(data[2]);
+                        listenButton(data[1]);
+                        setTimeout(displayData(data[2]));
+                        $("button").click(function () {
+                            listenButton(data[2]);
+                            setTimeout(displayData(data[3]));
+                            $("button").click(function () {
+                                listenButton(data[3]);
+                                setTimeout(displayData(data[4]));
+                                $("button").click(function () {
+                                    listenButton(data[4]);
+                                    var element = document.getElementById("box");
+                                    element.innerHTML = 
+                                    '<p style="font-size: 40px ;text-align: center;"> Chúc mừng bạn đã trả lời đúng ' + numTrue + ' câu </p>';
+                                })
+                            })
+                        })
                     })
-                })
-                
+                })   
             },
             error: function () { alert('Failed!') },
-        });
-        
+        });  
     });
 
     function displayData(dData) {
@@ -69,20 +85,33 @@
             '<input id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >' +
             '<button id="button" style="font-size:20px;" >Kiểm tra</button>' +
             '</p>';
-        setTimeout(function () {
-            $("button").on("click", function () { 
-                var element = $('input').val();
-                if (element === dData.result) {
-                    alert('True')
-                }
-                else if (element != dData.result && element != false) {
-                    alert('False')
-                }
-                else if (element == null) {
-                    alert('Please type your answer')
-                }
-            })
-        }, 1000)
+    }
+
+    function listenButton(dData) {
+        var element = document.querySelector('#c1').value;
+        if (element == dData.result) {
+            numTrue++;
+            var element = document.getElementById("point");
+            switch (numTrue) {
+                case 1:
+                    element.innerHTML = '<img src = "../public/images/true.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 2:
+                    element.innerHTML = '<img src = "../public/images/true_2.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 3:
+                    element.innerHTML = '<img src = "../public/images/true_3.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 4:
+                    element.innerHTML = '<img src = "../public/images/true_4.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 5:
+                    element.innerHTML = '<img src = "../public/images/true_5.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;    
+                default:
+                    break;
+            }
+        }
     }
     
 </script>

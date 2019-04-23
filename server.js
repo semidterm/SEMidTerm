@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 
 
-app.get('/demo',(req, res)=>{
+app.get('/demden10data',(req, res)=>{
     let answer = [
     {
         groupID: 1,
@@ -29,18 +29,26 @@ app.get('/demo',(req, res)=>{
         question: "5 + 1 = ?",
         result: "6"
     },
-        {
-            groupID: 1,
-            chapterID: 3,
-            question: "1 + 1 = ?",
-            result: "2"
-        }
+    {
+        groupID: 1,
+        chapterID: 3,
+        question: "1 + 1 = ?",
+        result: "2"
+    },
+    {
+        groupID: 1,
+        chapterID: 2,
+        question: "2 + 3 = ?",
+        result: "5"
+    },
+    {
+        groupID: 1,
+        chapterID: 2,
+        question: "3 + 4 = ?",
+        result: "7"
+    }
 ]
     res.json(answer);
-})
-
-app.get('/demo/:groupID', (req, res) =>{
-    res.send(req.params.groupID);
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
