@@ -17,6 +17,18 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, '..', '/views/Luyentap.html'))
     });
 
+    app.get('/Kiemtra.html', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', '/views/Kiemtra.html'))
+    });
+
+    app.get('/Giaitri.html', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', '/views/Giaitri.html'))
+    });
+
+    app.get('/De1.html', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', '/views/De1.html'))
+    });
+
     app.get('/Congphamvi10.html', (req, res) => {
         res.sendFile(path.join(__dirname, '..', '/views/Congphamvi10.html'))
     });

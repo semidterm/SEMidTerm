@@ -13,8 +13,8 @@
 <nav class="navbar navbar-light bg-light justify-content-start sticky-top" id="my-menu">
    <a class="nav-link" href="Trangchu.html">Trang chủ</a>
    <a class="nav-link" href="Luyentap.html">Luyện Tập</a>
-   <a class="nav-link" href="#focus">Kiểm Tra</a>
-   <a class="nav-link" href="#entertainment">Giải Trí</a>
+   <a class="nav-link" href="Kiemtra.html">Kiểm Tra</a>
+   <a class="nav-link" href="Giaitri.html">Giải Trí</a>
    <a class="nav-link" href="Lienhe.html">Liên Hệ</a>
 </nav>
     <h1 style="font-size: 40px; text-align: center;" > Đếm đến 10 </h1>
@@ -38,20 +38,19 @@
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script>
-    var numTrue = 0;
-    var dataQuery;
-    $(document).ready(function () {
-        $.ajax({
-            url: 'http://localhost:3000/demden10data',
-            type: 'GET',
-            dataType: 'json',
+    var numTrue = 0; //Đếm số câu đúng
+    var dataQuery;  // Biến lưu dữ liệu get từ server
+    $(document).ready(function () { // Thực hiện sau khi load xong file html
+        $.ajax({    
+            url: 'http://localhost:3000/data', // URL để get dữ liệu
+            type: 'GET',                        // phương thức thực hiện
+            dataType: 'json',                   // dạng đối tượng truyền 
             crossDomain: false,
             cache: false,
-            success: function (data) {
-                console.log(data);
-                displayData(data[0])
-                $("button").click(function(){
-                    listenButton(data[0]);
+            success: function (data) {          // action khi get thành công
+                displayData(data[0])            // hiển thị câu hỏi lấy từ dữ liệu
+                $("button").click(function(){   // add action listen on button
+                    listenButton(data[0]);      // hàm kiểm tra đáp án và hiển thị sao
                     setTimeout(displayData(data[1]));
                     $("button").click(function () {
                         listenButton(data[1]);
@@ -78,7 +77,7 @@
     });
 
     function displayData(dData) {
-        var element = document.getElementById("box");
+        var element = document.getElementById("box");  // Hiển thị dữ liệu trong div với id = "box"
         element.innerHTML =
             '<p style="font-size: 100px ;text-align: center;  ">' + dData.question + '</p>' +
             '<p style="text-align: center; font-size: 40px ">Kết quả :' +
@@ -87,9 +86,9 @@
             '</p>';
     }
 
-    function listenButton(dData) {
-        var element = document.querySelector('#c1').value;
-        if (element == dData.result) {
+    function listenButton(dData) {  //Action listen on button
+        var element = document.querySelector('#c1').value;  // get element với id = "c1"
+        if (element === dData.answer) { 
             numTrue++;
             var element = document.getElementById("point");
             switch (numTrue) {

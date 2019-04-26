@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-
 const port = process.env.port || 3000;
+const mysql = require('mysql');
+
 app.use( express.static(path.join(__dirname,'public')))
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -11,44 +12,30 @@ app.use(function (req, res, next) {
 });
 require('./router/main')(app);
 app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'ejs');
 
-
-
-app.get('/demden10data',(req, res)=>{
-    let answer = [
-    {
-        groupID: 1,
-        chapterID: 1,
-        question: "3 + 5 = ?",
-        result: "8"
-    },
-    {
-        groupID: 1,
-        chapterID: 2,
-        question: "5 + 1 = ?",
-        result: "6"
-    },
-    {
-        groupID: 1,
-        chapterID: 3,
-        question: "1 + 1 = ?",
-        result: "2"
-    },
-    {
-        groupID: 1,
-        chapterID: 2,
-        question: "2 + 3 = ?",
-        result: "5"
-    },
-    {
-        groupID: 1,
-        chapterID: 2,
-        question: "3 + 4 = ?",
-        result: "7"
-    }
-]
-    res.json(answer);
+app.post('/Lienhe.html', (req,res) => {
+    alert(req.body)
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.get('/data',(req, res)=>{
+
+    var conn = mysql.createConnection({
+        database: 'my_classicmodels',
+        host: "localhost",
+        user: "root",
+        password: ""
+    });
+
+    conn.connect(function (err) {
+        if (err) throw err;
+        console.log("Connected!");
+    });
+
+    var sql = "Select * from luyentap";
+    conn.query(sql, function (err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+})
+
+app.listen(port, () => console.log(`App listening on port ${port}!`))
