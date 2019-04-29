@@ -59,7 +59,7 @@ module.exports = function (app) {
      app.post("/lienhe",urlencodedParser,function(req,res){
 
 
-
+//--> Xử lí dữ liệu với phần liên hệ  <--//
       //Kết nối cơ sở dữ liệu  
         var conn = mysql.createConnection({
             database: 'mydb',
