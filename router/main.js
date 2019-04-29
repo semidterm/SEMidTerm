@@ -64,12 +64,15 @@ module.exports = function (app) {
 //--> Xử lí dữ liệu với phần liên hệ  <--//
       //Kết nối cơ sở dữ liệu  
         var conn = mysql.createConnection({
-            database: 'mydb',
+            database: 'data',
             host: "localhost",
             user: "root",
             password: "password"
         });
-
+        conn.connect(function(err) {
+            if (err) throw err;
+        console.log("Connected!");
+        });
        // Lấy dữ liệu từ phía client
         var names = req.body.name;
         var phones = req.body.phone;
@@ -78,12 +81,14 @@ module.exports = function (app) {
         var questions = req.body.question;
 
         // Đưa dữ liệu vào cơ sở dữ liệu
-        var sql = "INSERT INTO supportCustomer (name, phone, address, gmail, question) VALUES('"+names+"','"+phones+"','"+addresss+"','"+gmails+"','"+questions+"')";
+        var sql = "INSERT INTO questionCustomer (name, phone, address, gmail, question) VALUES('"+names+"','"+phones+"','"+addresss+"','"+gmails+"','"+questions+"')";
         conn.query(sql, function(err, results) {
         if (err) throw err;
-        console.log("Table Employees created");
+        console.log("completed");
          });
         res.sendFile(path.join(__dirname, '..', '/views/Lienhe.html'))
+        
     });
+
 }
 

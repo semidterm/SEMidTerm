@@ -12,11 +12,6 @@ app.use(function (req, res, next) {
 });
 require('./router/main')(app);
 app.set('views', path.join(__dirname, '/views'));
-
-app.post('/Lienhe.html', (req,res) => {
-    alert(req.body)
-})
-
 app.get('/data',(req, res)=>{
 
     var conn = mysql.createConnection({
