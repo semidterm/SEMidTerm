@@ -10,10 +10,7 @@ app.use(function (req, res, next) {
     next();
 });
 require('./router/main')(app);
-app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'ejs');
-
-
+var bodyParser = require('body-parser');
 
 app.get('/demden10data',(req, res)=>{
     let answer = [

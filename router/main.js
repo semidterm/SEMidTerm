@@ -1,5 +1,4 @@
 const path = require('path');
-
 module.exports = function (app) {
     app.get('/', function (req, res) {
         res.sendFile(path.join(__dirname, '..', '/views/MathFun.html'));
@@ -44,4 +43,11 @@ module.exports = function (app) {
     app.get('/public/images/true_5.png', (req, res) => {
         res.sendFile(path.join(__dirname, '..', '/public/images/true_5.png'));
     })
-}
+
+    }
+    //    file.writeFile("./data.txt", req.body, function(err){
+    //    //res.sendFile(path.join(__dirname, '..', '/views/Lienhe.html'));
+    //     if (err) {
+    //    return console.error(err);
+    //     }
+    // })
