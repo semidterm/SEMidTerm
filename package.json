@@ -1,0 +1,37 @@
+{
+  "name": "semidterm",
+  "version": "1.0.0",
+  "description": "<h1>MATHFUN_PROJECT_TEAM_0 </h1><br />\r Member: Bui Tien Duy, Nguyen Vu Dong, Du Dinh Doanh, Dinh Minh Khang, Duong Ngoc Linh <br />\r Project name: MathFun <br />\r Our project bringing many practice-skill and format for primitary student to learning math after school. <br /> \r Beside of that, we also privide them various of funny stories, fairy tails. <br />\r Phone contact: 086.901.8091. <br />\r Email contact: duytb.uet@gmail.com <br />",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jquery": "^3.4.0",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semidterm/SEMidTerm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semidterm/SEMidTerm/issues"
+  },
+  "homepage": "https://github.com/semidterm/SEMidTerm#readme",
+  "directories": {
+    "test": "test"
+  }
+}

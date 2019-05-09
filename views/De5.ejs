@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-start sticky-top" id="my-menu">
+        <a class="nav-link" href="Trangchu.ejs">Trang chủ</a>
+        <a class="nav-link" href="Luyentap.ejs">Luyện Tập</a>
+        <a class="nav-link" href="Kiemtra.ejs">Kiểm Tra</a>
+        <a class="nav-link" href="Giaitri.ejs">Giải Trí</a>
+        <a class="nav-link" href="Lienhe.ejs">Liên Hệ</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div style="width: 700px">
+                    <h1 style="font-size: 40px; text-align: center;"> Đề số 5 </h1>
+                </div>
+                <div id="box1"
+                    style="float:center ;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px ">
+
+                </div>
+                <div id="box2"
+                    style="float: left; height:auto; width:700px; border:2px solid blue; margin-bottom: 50px ">
+
+                </div>
+                <div id="box3" style="float: left;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+                <div id="box4"
+                    style="float: left;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px ">
+
+                </div>
+                <div id="box5" style="float: left;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+                <div id="box6"
+                    style="float: left;height: auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+                <div id="box7"
+                    style="float: left;height: auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+                <div id="box8" style="float: left;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+                <div id="box9" style="float: left;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+                <div id="box10"
+                    style="float: left;height:auto; width:700px; border:2px solid blue; margin-bottom: 50px">
+
+                </div>
+            </div>
+            <div class="col-md-2 sticky-top" style="position:fixed; top: 80px; right: 400px;">
+                <div id="buttondiv">
+                    <button id="button" type="btn" class="btn btn-outline-success"
+                        style=" margin-left:  200px; width:300px;height: auto; font-size: 40px ">Kiểm Tra</button>
+                </div>
+                <div id="output">
+                    <h2>
+                        <p style="text-align:right; color: black; font-size: 30px;"></p>
+                    </h2>
+                    <div id="point"
+                        style="margin-left: 200px; margin-bottom: 50px; height: 200px; width: 300px; border :2px solid blue;">
+                        <p style="font-size: 30px ;text-align: center; color:red; "> Điểm</p>
+                        <p style="font-size: 60px;text-align: center;color: #333333" id="pointout"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript">
+        var cur = 0;
+        var numTrue = 0;
+        $(document).ready(function () {
+            $.ajax({
+                url: 'http://localhost:3000/dataKiemtra/5',                                                                                                                                                                                                                         // URL để get dữ liệu
+                type: 'GET',                        //Phương thức thực hiện
+                dataType: 'json',                   //Dạng đối tượng truyền 
+                crossDomain: false,
+                cache: false,
+                success: function (data) {          //Hàm xử lý khi load được data
+                    displayData(data);
+                    $('.true-false').hide();
+                    $("button").click(function () {
+                        if (cur == 0) {                   //Hiển thị, kiểm tra đáp án và hiển thị nút làm lại
+                            listenButton(data);
+                            var element = document.getElementById("button").innerText = "Làm Lại";
+                            cur = 1;
+                        }
+                        else {                        //Hiển thị nút kiểm tra và clear kết quả
+                            var element = document.getElementById("button").innerText = "Kiểm Tra";
+                            clearChecked(data);
+                            cur = 0;
+                        }
+                    })
+                }
+            });
+        });
+
+        function displayData(dData) {   //Hàm hiển thị câu hỏi 
+            for (let i = 1; i < dData.length + 1; i++) {
+                renderQuestion(dData[i - 1], i);
+            }
+        }
+
+        function listenButton(dData) {    //Hàm kiểm tra đúng sai khi bấm nút
+            for (let index = 1; index < dData.length + 1; index++) {
+                var element = document.getElementById("c" + index).value.toLowerCase();
+                if (element == dData[index - 1].answer) {
+                    numTrue++;
+                    renderCheckedQuestion(dData[index - 1], index, 'dung');   //Hàm hiển thị hình ảnh cho đáp án đúng
+                }
+                else {
+                    renderCheckedQuestion(dData[index - 1], index, 'sai');     //Hàm hiển thị hình ảnh cho đáp án sai
+                }
+            }
+            var element = document.getElementById("point");
+            element.innerHTML = '<p style="font-size: 60px;text-align: center;color: #333333" id="pointout">' + numTrue + '</p>';
+            // Hiển thị số câu đúng
+            numTrue = 0;
+        }
+
+        function renderQuestion(dData, i) {                       //Hàm hiển thị câu hỏi
+            var element = document.getElementById("box" + i);      // Hiển thị dữ liệu trong div với id = box + 'i'
+            if (dData.image == null) {                      //Hiển thị câu hỏi nếu là text
+                element.innerHTML =
+                    '<p style="font-size: 30px ;text-align: center;  ">' + dData.questionRequest + '</p>' +
+                    '<p style="font-size: 45px ;text-align: center;  ">' + dData.question + ' </p>' +
+                    '<p style="text-align: center; font-size: 35px ">Kết quả ' +
+                    '<input id="c' + i.toString() + '" style="border : 1px solid black; text-align:center;" type="text" name="anwser" value="">' +
+                    '<img id="dung' + i + '" class="true-false" src = "../public/images/dung.png" width ="45px" height = "auto" class="centerpicture" />' +
+                    '<img id="sai' + i + '"class="true-false" src = "../public/images/sai.png" width ="45px" height = "auto" class="centerpicture" />' +
+                    '</p>'
+            }
+            else if (dData.question == null || dData.question == "") {      //Hiển thị câu hỏi nếu là hình ảnh
+                element.innerHTML =
+                    '<p style="font-size: 30px ;text-align: center;  ">' + dData.questionRequest + '</p>' +
+                    '<div align = "center"> <img src="' + dData.image + '" class="card-img-top" alt="..." style="margin-bottom: 20px; margin-top: 20px ;width : 250px; height: auto; width="119" height="120"> </div>' +
+                    '<p style="text-align: center; font-size: 35px ">Kết quả ' +
+                    '<input id="c' + i.toString() + '" style="border : 1px solid black; text-align:center;" type="text" name="anwser" value="">' +
+                    '<img id="dung' + i + '"class="true-false" src = "../public/images/dung.png" width ="45px" height = "auto" class="centerpicture" />' +
+                    '<img id="sai' + i + '"class="true-false" src = "../public/images/sai.png" width ="45px" height = "auto" class="centerpicture" />' +
+                    '</p>'
+            }
+        }
+
+        function renderCheckedQuestion(dData, i, boolAnswer) {    //Hàm kiểm tra đáp án và hiển thị hình ảnh
+            if (dData.image == null) {
+                $('#' + boolAnswer + i).show();
+            }
+            else if (dData.question == null || dData.question == "") {
+                $('#' + boolAnswer + i).show();
+            }
+        }
+
+        function clearChecked(dData) {                            //Hàm reset bài làm
+            $('.true-false').hide();
+            for (let index = 1; index < dData.length + 1; index++) {
+                document.getElementById("c" + index).value = "";
+            }
+            document.getElementById("pointout").innerHTML = "";
+        }
+    </script>
+
+
+</body>
+
+</html>

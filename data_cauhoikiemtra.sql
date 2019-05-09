@@ -1,0 +1,54 @@
+/*
+-- Query: select * from cauhoikiemtra
+-- Date: 2019-05-09 21:00
+*/
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,1,'7 +  8 = ?','15',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,2,NULL,'10','../public/images/10chen.png','Có bao nhiêu cái chén trong bức ảnh');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,3,'13 + 25 = ?','38',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,4,'\"Ba mươi sáu\"','36',NULL,'Viết theo cách đọc sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,5,'Số liền trước của 24 là','23',NULL,'Điền số thích hợp:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,6,'','4','../public/images/3nam4tho.jpg','Có bao nhiêu con thỏ trong bức ảnh');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,7,'','tam giác','../public/images/tamgiac.png','Đây là hình gì');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,8,'13, 25, 16, 28, 56, 65','65',NULL,'Số nào lớn nhất trong dãy số dưới đây:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,9,'39 - 11 = ?','28',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (1,10,'27 + 18 - 13 = ?','32',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,1,'5 + 6 = ?','11',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,2,NULL,'4','../public/images/4tacke.png','Có bao nhiêu con tắc kè trong bức ảnh');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,3,'24 + 28 = ?','52',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,4,'\"Năm mươi lăm\"','55',NULL,'Viết theo cách đọc sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,5,'Số lớn nhất có hai chữ số là','99',NULL,'Điền số thích hợp');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,6,NULL,'3','../public/images/3do.jpg','Có bao nhiêu hình tròn màu đỏ trong bức ảnh');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,7,NULL,'tam giác','../public/images/tamgiac8.png','Đây là hình gì');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,8,'11, 56, 72, 48, 33','72',NULL,'Số nào lớn nhất trong dãy số dưới đây:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,9,'45 - 12 = ?','33',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (2,10,'15 + 13 - 14 = ?','14',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,1,'4 + 2 = ?','6',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,2,NULL,'3','../public/images/3dongho.jpg','Có bao nhiêu cái đồng hồ trong bức ảnh');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,3,' 48 + 23 = ?','71',NULL,'Thực hiện phép toán sau');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,4,'\"Bảy mươi chín\"','79',NULL,'Viết theo cách đọc sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,5,'Số liền sau của 49 là ','50',NULL,'Điền số thích hợp:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,6,'','8','../public/images/tamgiac2.jpg','Có bao nhiêu đoạn thẳng trong hình dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,7,NULL,'vuông','../public/images/vuong4.png','Đây là hình gì');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,8,'5, 7, 15, 48, 23','5',NULL,'Số nào nhỏ nhất trong dãy số dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,9,'82 - 47 = ?','35',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (3,10,' 25 + 45 - 38 = ?','32',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,1,'5 + 19 = ?','24',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,2,NULL,'5','../public/images/5vit.png','Có bao nhiêu con vịt trong bức ảnh:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,3,'22 + 47 = ?','69',NULL,'Thực hiện phép toán sau');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,4,'\"Sáu mươi chín\"','69',NULL,'Viết theo cách đọc sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,5,'Số liền sau của 68 là','69',NULL,'Điền số thích hợp');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,6,NULL,'10','../public/images/tamgiac1.jpg','Có bao nhiêu đoạn thẳng trong hình dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,7,NULL,'vuông','../public/images/vuong6.png','Đây là hình gì');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,8,'15, 26, 69, 40, 58','69',NULL,'Số nào lớn nhất trong dãy số dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,9,'96 - 27 = ?','69',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (4,10,'15 + 79 - 25 = ?','69',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,1,'12 + 13 = ?','25',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,2,NULL,'3','../public/images/3bong.png','Có bao nhiêu quả bóng trong hình dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,3,'32 + 64 = ?','96',NULL,'Thực hiện phép tính dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,4,'\"Chín mươi sáu\"','96',NULL,'Viết theo cách đọc sau');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,5,'Số liền trước của 97 là','96',NULL,'Điền số thích hợp');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,6,NULL,'7','../public/images/doanthang.jpg','Có bao nhiêu đoạn thẳng trong hình dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,7,NULL,'tròn','../public/images/tron1.png','Đây là hình gì');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,8,'15, 46, 84, 96, 78','96',NULL,'Số nào lớn nhất trong dãy số dưới đây');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,9,'99 - 3 = ?','96',NULL,'Thực hiện phép toán sau:');
+INSERT INTO `` (`groupID`,`questionID`,`question`,`answer`,`image`,`questionRequest`) VALUES (5,10,'15 + 85 - 4 = ?','96',NULL,'Thực hiện phép toán sau:');

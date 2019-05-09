@@ -30,7 +30,7 @@ CREATE TABLE `questioncustomer` (
   `gmail` text,
   `question` text,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `questioncustomer` (
 
 LOCK TABLES `questioncustomer` WRITE;
 /*!40000 ALTER TABLE `questioncustomer` DISABLE KEYS */;
-INSERT INTO `questioncustomer` VALUES (1,'Dương Ngọc Linh',583475987,'','','good'),(2,'sad',583475987,'hn','abc@gmail.com','good');
+INSERT INTO `questioncustomer` VALUES (1,'Dương Ngọc Linh',583475987,'','','good'),(2,'sad',583475987,'hn','abc@gmail.com','good'),(3,'ewqeqw',21321312,'','','');
 /*!40000 ALTER TABLE `questioncustomer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-29 21:49:21
+-- Dump completed on 2019-05-04 21:34:48

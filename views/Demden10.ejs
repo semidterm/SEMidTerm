@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="owl-carousel/assets/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body >
+<nav class="navbar navbar-light bg-light justify-content-start sticky-top" id="my-menu">
+   <a class="nav-link" href="Trangchu.ejs">Trang chủ</a>
+   <a class="nav-link" href="Luyentap.ejs">Luyện Tập</a>
+   <a class="nav-link" href="Kiemtra.ejs">Kiểm Tra</a>
+   <a class="nav-link" href="Giaitri.ejs">Giải Trí</a>
+   <a class="nav-link" href="Lienhe.ejs">Liên Hệ</a>
+</nav>
+    <h1 style="font-size: 40px; text-align: center;" > Đếm đến 10 </h1>
+    <div class="container">
+        <div id = "require"> 
+            <h2> 
+                <p style="color: black; font-size: 30px;">Điền số thích hợp vào ô trống</p> 
+            </h2>
+        </div>
+        <div id ="box" style="float: left;height:400px; width:600px; border:2px solid blue; ">
+            <br>
+            <button id="demo" style="font-size:20px;">  Kiểm tra</button>
+        </div>  
+        <div id ="output" > 
+           <h2>
+               <p style="text-align: center; color: black; font-size: 30px;">Số sao đạt được</p>
+            </h2>
+            <div id="point" style="float:right; height: 310px; width: 420px; border :2px solid blue; text-align:center">   
+            </div>  
+        </div>  
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script>
+    var numTrue = 0; //Đếm số câu đúng
+    var dataQuery;  // Biến lưu dữ liệu get từ server
+    $(document).ready(function () { // Thực hiện sau khi load xong file html
+        $.ajax({    
+            url: 'http://localhost:3000/data/1/1',                                                                                                                                                                                                                         // URL để get dữ liệu
+            type: 'GET',                        // phương thức thực hiện
+            dataType: 'json',                   // dạng đối tượng truyền 
+            crossDomain: false,
+            cache: false,
+            success: function (data) {  
+                console.log(data);         // action khi get thành công
+                displayData(data[0])            // hiển thị câu hỏi lấy từ dữ liệu
+                $("button").click(function(){   // add action listen on button
+                    listenButton(data[0]);      // hàm kiểm tra đáp án và hiển thị sao
+                    setTimeout(displayData(data[1]));
+                    $("button").click(function () {
+                        listenButton(data[1]);
+                        setTimeout(displayData(data[2]));
+                        $("button").click(function () {
+                            listenButton(data[2]);
+                            setTimeout(displayData(data[3]));
+                            $("button").click(function () {
+                                listenButton(data[3]);
+                                setTimeout(displayData(data[4]));
+                                $("button").click(function () {
+                                    listenButton(data[4]);
+                                    var element = document.getElementById("box");
+                                    element.innerHTML = 
+                                    '<p style="font-size: 40px ;text-align: center;"> Chúc mừng bạn đã trả lời đúng ' + numTrue + '/5 câu </p>';
+                                })
+                            })
+                        })
+                    })
+                })   
+            },
+            error: function () { alert('Failed!') 
+            console.log('failed')},
+        });  
+    });
+
+    function displayData(dData) {
+        var element = document.getElementById("box");  // Hiển thị dữ liệu trong div với id = "box"
+        element.innerHTML =
+            '<br><div align = "center"> <img src =' + dData.image + ' width="300" height="180" class="centerpicture"/> </div> ' +
+            '<p style="text-align: center; font-size: 40px ">Kết quả :' +
+            '<input autocomplete = "off" id="c1" style="border : 1px solid black; text-align:center;" type="text" name="anwser" >' +
+            '<br>'+
+            '<button id="button" style="font-size:20px;" >Kiểm tra</button>' +
+            '</p>';
+    }
+
+    function listenButton(dData) {  //Action listen on button
+        var element = document.querySelector('#c1').value;  // get element với id = "c1"
+        if (element === dData.answer) { 
+            numTrue++;
+            var element = document.getElementById("point");
+            switch (numTrue) {
+                case 1:
+                    element.innerHTML = '<img src = "../public/images/true.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 2:
+                    element.innerHTML = '<img src = "../public/images/true_2.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 3:
+                    element.innerHTML = '<img src = "../public/images/true_3.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 4:
+                    element.innerHTML = '<img src = "../public/images/true_4.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;
+                case 5:
+                    element.innerHTML = '<img src = "../public/images/true_5.png" width ="410px" height = "auto" class="centerpicture" />'
+                    break;    
+                default:
+                    break;
+            }
+        }
+    }
+    
+</script>
+</html>
